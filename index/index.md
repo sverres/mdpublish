@@ -4,6 +4,7 @@
 ## Presentations
 - [inspire](./inspire.html)
 ## Notes
+- [mdpublish](./mdpublish.html)
 - [note-1](./note-1.html)
 - [note-2](./note-2.html)
 - [note-3](./note-3.html)

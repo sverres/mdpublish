@@ -5,6 +5,8 @@
 # sverre.stikbakke@ntnu.no 18.04.2016
 #
 
+mkdir -p $WORK
+
 for file in $MDFILES
 do
   cp $file "$WORK/temp.md"
