@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>@@title</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="./styles/prism.css">
+  <style>
+    @@css
+  </style>
+</head>
+
+<body>
+
+  <div id="mdcontent">
+    @@markdown
+  </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.3.0/showdown.min.js">
+</script>
+<script>
+  var converter = new showdown.Converter();
+  converter.setOption('simplifiedAutoLink', true);
+  converter.setOption('tables', true);
+  var convert = function() {
+    $('#mdcontent').html(converter.makeHtml($('#mdcontent').text()));
+  };
+  convert();
+</script>
+<script src="./script/prism.js">
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+</body>
+
+</html>

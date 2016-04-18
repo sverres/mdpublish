@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>note-3</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="./styles/prism.css">
+  <style>
+@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+body {
+  font-family: 'Droid Serif';
+  margin-left: 3%;
+  width: 80%;
+}
+h1, h2, h3 {
+  font-family: 'Yanone Kaffeesatz';
+  font-weight: normal;
+}
+pre {
+  font-family: 'Ubuntu Mono';
+}
+.MathJax_Display {
+  text-align: left !important;
+  display: inline !important;
+  padding-left: 1%;
+}
+  </style>
+</head>
+
+<body>
+
+  <div id="mdcontent">
+# Hvordan finne extent?
+
+- Spørre tjenesten ved hjelp av GetCapabilities-kall:
+```http
+http://openwms.statkart.no/skwms1/wms.topo2?request=GetCapabilities&Service=WMS
+```
+
+- Hente ut koordinater for BoundingBox:
+```markup
+&lt;BoundingBox CRS="EPSG:32633" minx="-127998" miny="6.37792e+06" maxx="1.14551e+06" maxy="7.9768e+06"/>
+```
+
+
+- Skrevet som en javascript-variabel:
+```javascript
+var extentKartverketWMS32633 = [-127998, 6377920, 1145510, 7976800]
+```
+
+- Transformert til EUREF89 - UTM32 ved hjelp av funksjoner på http://norgeskart.no
+```javascript
+[234067.747, 6338450.05, 1351516.4, 8051673.295]
+```
+
+- Avrundet og skrevet som javascript-variabel:
+```javascript
+var extentKartverketWMS25832 = [234068, 6338450, 1351516, 8051673]
+```
+
+- Hvor stort blir dette?
+```code
+utstrekning øst-vest: 1351516 - 234068 = 1117448 (1117 km)
+utstrekning nord-sør: 8051673 - 6338450 = 1713223 (1713 km)
+```  </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.3.0/showdown.min.js">
+</script>
+<script>
+  var converter = new showdown.Converter();
+  converter.setOption('simplifiedAutoLink', true);
+  converter.setOption('tables', true);
+  var convert = function() {
+    $('#mdcontent').html(converter.makeHtml($('#mdcontent').text()));
+  };
+  convert();
+</script>
+<script src="./script/prism.js">
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+</body>
+
+</html>
