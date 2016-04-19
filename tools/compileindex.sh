@@ -48,10 +48,17 @@ cd ..
 REPO=`pwd`
 cd tools
 
+echo '## This version' >> $INDEXFILE
+echo "" >> $INDEXFILE
+echo "- `date +'%F %T %z'`" >> $INDEXFILE
+echo "" >> $INDEXFILE
 echo '## Earlier versions' >> $INDEXFILE
 echo "" >> $INDEXFILE
 git log --pretty=format:"- [%ai |%an |%s]"\
 "(https://cdn.rawgit.com/$GITHUBUSER/`basename $REPO`/%H/)" >> $INDEXFILE
+echo "" >> $INDEXFILE
+echo "" >> $INDEXFILE
+echo '## Future version' >> $INDEXFILE
 echo "" >> $INDEXFILE
 echo "- [bleeding edge a.k.a. master]\
 (https://rawgit.com/$GITHUBUSER/`basename $REPO`/master/)" >> $INDEXFILE
