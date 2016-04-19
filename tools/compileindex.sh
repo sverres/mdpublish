@@ -40,11 +40,15 @@ do
 done
 echo "" >> $INDEXFILE
 
+# Make links to serve html files as html files straight from github
+# - permalinks - per commit
+# - master-link - do not use in production - according to rawgit.com
+
 cd ..
 REPO=`pwd`
 cd tools
 
-echo '## Versions' >> $INDEXFILE
+echo '## Earlier versions' >> $INDEXFILE
 echo "" >> $INDEXFILE
 git log --pretty=format:"- [%ai |%an |%s]"\
 "(https://cdn.rawgit.com/$GITHUBUSER/`basename $REPO`/%H/)" >> $INDEXFILE
