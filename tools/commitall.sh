@@ -18,6 +18,7 @@ source ./makeslides.sh
 source ./makenotes.sh
 source ./makeindex.sh "${COMMITMSG}"
 cd ..
+rm -f ../rawgitlink.txt
 git add .
 git commit -am "${COMMITMSG}"
 git push
