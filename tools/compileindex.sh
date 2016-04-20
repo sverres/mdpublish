@@ -13,6 +13,9 @@ PRESENTATIONSFILES='../presentations/*.md'
 
 INDEXFILE='../index/index.md'
 
+# use only if called from commitall.sh
+COMMITMSG="${1}"
+
 echo '# All files' > "${INDEXFILE}"
 echo '' >> "${INDEXFILE}"
 
@@ -59,7 +62,8 @@ echo '## This version' >> "${INDEXFILE}"
 # insert current date and time
 #
 echo '' >> "${INDEXFILE}"
-echo "- $(date +'%F %T %z') |$(git config --get user.name) |${1}" >> "${INDEXFILE}"
+echo "- $(date +'%F %T %z') |$(git config --get user.name) |${COMMITMSG}"\
+ >> "${INDEXFILE}"
 echo '' >> "${INDEXFILE}"
 
 echo '## Earlier versions' >> "${INDEXFILE}"

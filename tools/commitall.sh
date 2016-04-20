@@ -5,10 +5,18 @@
 # sverre.stikbakke@ntnu.no 20.04.2016
 #
 
+if [ "${#}" -ne 1 ]
+then
+    echo "usage: commitall.sh \"commit message\""
+    exit 1
+fi
+
+COMMITMSG="${1}"
+
 source ./makeplans.sh
 source ./makeslides.sh
 source ./makenotes.sh
-source ./makeindex.sh "${1}"
+source ./makeindex.sh "${COMMITMSG}"
 git add .
-git commit -am "${1}"
+git commit -am "${COMMITMSG}"
 git push

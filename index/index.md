@@ -19,10 +19,11 @@
 
 ## This version
 
-- 2016-04-20 19:37:34 +0200 |Sverre Stikbakke |added commitall.sh
+- 2016-04-20 20:47:57 +0200 |Sverre Stikbakke |added argument check on commitall.sh
 
 ## Earlier versions
 
+- [2016-04-20 19:37:34 +0200 |Sverre Stikbakke |added commitall.sh](https://cdn.rawgit.com/sverres/mdpublish/6dcb2cb744d298bb8f004d4b9568ea2f42c289eb/)
 - [2016-04-20 10:57:21 +0200 |Sverre Stikbakke |update mdpublish.md](https://cdn.rawgit.com/sverres/mdpublish/292244c9364864c085aeaf6312e9de3b1e138e71/)
 - [2016-04-20 10:51:42 +0200 |Sverre Stikbakke |changed #!/bin/sh to #!/bin/bash - update mdpublish.md](https://cdn.rawgit.com/sverres/mdpublish/0d5aff2d538ebd81dacee5abe51a69522f0d465d/)
 - [2016-04-20 10:43:21 +0200 |Sverre Stikbakke |Changed variable and command expansion style. Comments.](https://cdn.rawgit.com/sverres/mdpublish/c02a8431232259f256f4e744c0b61a687280d368/)
