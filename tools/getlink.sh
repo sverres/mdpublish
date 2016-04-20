@@ -6,10 +6,17 @@
 #
 
 GITHUBUSER='sverres'
+OUTFILE='../rawgitlink.txt'
 
 cd ..
 REPO="$(pwd)"
 cd tools
 
+#
+# from git log:
+# - SHA from latest commit as part of url (%H) (to index.html)
+#
 git log -1 --pretty=format:\
-"https://cdn.rawgit.com/$GITHUBUSER/$(basename $REPO)/%H/"
+"https://cdn.rawgit.com/$GITHUBUSER/$(basename $REPO)/%H/" > "${OUTFILE}"
+echo "${OUTFILE}:" 
+cat "${OUTFILE}"
