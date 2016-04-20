@@ -59,7 +59,7 @@ echo '## This version' >> "${INDEXFILE}"
 # insert current date and time
 #
 echo '' >> "${INDEXFILE}"
-echo "- $(date +'%F %T %z')" >> "${INDEXFILE}"
+echo "- $(date +'%F %T %z') |$(git config --get user.name) |${1}" >> "${INDEXFILE}"
 echo '' >> "${INDEXFILE}"
 
 echo '## Earlier versions' >> "${INDEXFILE}"
