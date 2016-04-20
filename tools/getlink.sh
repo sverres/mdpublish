@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # Make link to serve html files as html files straight from github
 #

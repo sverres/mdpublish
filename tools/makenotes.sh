@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # replace placeholder in HTML file with markdown file content
 #

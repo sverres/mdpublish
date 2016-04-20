@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # generate html files from all markdown files
 #
