@@ -23,3 +23,4 @@ git add .
 git commit -am "${COMMITMSG}"
 git push
 cd tools
+source ./getlink.sh

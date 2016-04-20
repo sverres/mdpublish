@@ -19,10 +19,11 @@
 
 ## This version
 
-- 2016-04-20 21:19:04 +0200 |Sverre Stikbakke |getlink.sh removes ../rawgitlink.txt
+- 2016-04-20 21:21:42 +0200 |Sverre Stikbakke |commitall.sh calls getlink.sh
 
 ## Earlier versions
 
+- [2016-04-20 21:19:05 +0200 |Sverre Stikbakke |getlink.sh removes ../rawgitlink.txt](https://cdn.rawgit.com/sverres/mdpublish/dd51f31337b42c458c41931530c26c3b6fa45d33/)
 - [2016-04-20 21:16:45 +0200 |Sverre Stikbakke |commtitall cd.. before git add](https://cdn.rawgit.com/sverres/mdpublish/c93b8fd53728651823e8344890d1decda65c33ed/)
 - [2016-04-20 21:10:29 +0200 |Sverre Stikbakke |commtitall cd.. before git add](https://cdn.rawgit.com/sverres/mdpublish/5edaa21d8dc1a49736b843d6d85a646505b05c6f/)
 - [2016-04-20 21:06:26 +0200 |Sverre Stikbakke |getlink.sh writes ../rawgitlink.txt](https://cdn.rawgit.com/sverres/mdpublish/6f73b4a430988ebd17686037e6b55adc6488a724/)
