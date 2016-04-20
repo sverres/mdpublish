@@ -112,6 +112,33 @@ setter parametre ...
 # sverre.stikbakke@ntnu.no 18.04.2016
 #
 
+MDFILES='../notes/*.md'
+TEMPLATE='notes.html'
+CSS='notes.css'
+
+PLACEHOLDERTITLE='@@title'
+PLACEHOLDERCSS='@@css'
+PLACEHOLDERMD='@@markdown'
+
+HTMLOUTPUT='..'
+TEMPLATES='../templates'
+STYLES='../styles'
+WORK='../work'
+
+source ./processmdfiles.sh
+```
+
+
+...og setter inn css og markdown i html-malen:
+
+```bash
+#!/bin/bash
+#
+# replace placeholder in HTML file with markdown file content
+#
+# sverre.stikbakke@ntnu.no 18.04.2016
+#
+
 mkdir -p "${WORK}"
 
 for file in ${MDFILES}
@@ -143,41 +170,5 @@ do
   echo "${HTMLOUTPUT}/$(basename ${file} .md).html"
   mv "${WORK}/temp.html" "${HTMLOUTPUT}/$(basename ${file} .md).html"
   rm "${WORK}/temp.md"
-done
-
-```
-
-
-...og setter inn css og markdown i html-malen:
-
-```bash
-#!/bin/sh
-#
-# replace placeholder in HTML file with markdown file content
-#
-# sverre.stikbakke@ntnu.no 18.04.2016
-#
-
-mkdir -p $WORK
-
-for file in $MDFILES
-do
-  cp $file "$WORK/temp.md"
-  # change '<' to '&lt;' - prism.js requirement
-  sed -e 's#<#\&lt;#' -i "$WORK/temp.md"
-  # change relative adress for image files
-  sed -e 's#\.\./images#./images#' -i "$WORK/temp.md"
-
-  cp "$TEMPLATES/$TEMPLATE" "$WORK/temp.html"
-  # set HTML title to filename
-  sed -e "s/$PLACEHOLDERTITLE/`basename $file .md`/" -i "$WORK/temp.html"
-  # insert css code into html file
-  sed -e "/$PLACEHOLDERCSS/{" -e "r $STYLES/$CSS" -e "d" -e "}" -i "$WORK/temp.html"
-  # insert modified markdown file into html file
-  sed -e "/$PLACEHOLDERMD/{" -e "r $WORK/temp.md" -e "d" -e "}" -i "$WORK/temp.html"
-
-  echo "$HTMLOUTPUT/`basename $file .md`.html"
-  mv "$WORK/temp.html" "$HTMLOUTPUT/`basename $file .md`.html"
-  rm "$WORK/temp.md"
 done
 ```

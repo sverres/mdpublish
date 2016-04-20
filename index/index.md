@@ -19,10 +19,11 @@
 
 ## This version
 
-- 2016-04-20 10:48:44 +0200
+- 2016-04-20 10:55:35 +0200
 
 ## Earlier versions
 
+- [2016-04-20 10:51:42 +0200 |Sverre Stikbakke |changed #!/bin/sh to #!/bin/bash - update mdpublish.md](https://cdn.rawgit.com/sverres/mdpublish/0d5aff2d538ebd81dacee5abe51a69522f0d465d/)
 - [2016-04-20 10:43:21 +0200 |Sverre Stikbakke |Changed variable and command expansion style. Comments.](https://cdn.rawgit.com/sverres/mdpublish/c02a8431232259f256f4e744c0b61a687280d368/)
 - [2016-04-19 19:05:11 +0200 |Sverre Stikbakke |update commit history](https://cdn.rawgit.com/sverres/mdpublish/61b6346633a935b9e9ed81d9b2a3457b126ac2e7/)
 - [2016-04-19 19:03:41 +0200 |Sverre Stikbakke |added getlink.sh](https://cdn.rawgit.com/sverres/mdpublish/8304d59df98ee00047169550e5915f36e8bc3ee6/)
