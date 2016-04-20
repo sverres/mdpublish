@@ -8,8 +8,8 @@
 GITHUBUSER='sverres'
 
 cd ..
-REPO=`pwd`
+REPO="$(pwd)"
 cd tools
 
 git log -1 --pretty=format:\
-"https://cdn.rawgit.com/$GITHUBUSER/`basename $REPO`/%H/"
+"https://cdn.rawgit.com/$GITHUBUSER/$(basename $REPO)/%H/"
