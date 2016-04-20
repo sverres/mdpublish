@@ -17,6 +17,8 @@ source ./makeplans.sh
 source ./makeslides.sh
 source ./makenotes.sh
 source ./makeindex.sh "${COMMITMSG}"
+cd ..
 git add .
 git commit -am "${COMMITMSG}"
 git push
+cd tools
