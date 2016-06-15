@@ -5,51 +5,59 @@
 # sverre.stikbakke@ntnu.no 18.04.2016
 #
 
-insertfromfile () {
-  #
-  # ${1}: placeholder token
-  # ${2}: replacement content file
-  # ${3}: file to edit
-  #
-  # sed [-n] program [file-list]
-  # sed program syntax
-  #   -e edit command follows (part of program)
-  #   / /  address - regex to select line(s) to edit
-  #  {} grouping of commands
-  #  -r read command - read file content
-  #  -d delete - do not print original line content
-  #  -i edit file in place
-  #
-  sed -e "/${1}/{" -e "r ${2}" -e "d" -e "}" -i "${3}"
+# change relative adress for image files:
+# ../images to ./images
+# reason: images are used in md files as well as html files
+modify_image_links() {
+  local mdfile
+  mdfile="${1}" || return
+
+  sed -e 's#\.\./images#\./images#' -i "${mdfile}"
+}
+
+insert_title() {
+  local mdfile
+  local htmlfile
+  local placeholder
+
+  mdfile="${1}" || return
+  htmlfile="${2}" || return
+  placeholder="${3}" || return
+
+  sed -e "s/${placeholder}/$(basename "${mdfile}" .md)/" -i "${htmlfile}"
+}
+
+insert_from_file() {
+  local insertfile
+  local editfile
+  local placeholder
+
+  insertfile="${1}" || return
+  editfile="${2}" || return
+  placeholder="${3}" || return
+
+  sed -e "/${placeholder}/{" -e "r ${insertfile}" -e "d" -e "}" -i "${editfile}"
+}
+
+process_mdfiles() {
+  for srcfile in ${MDFILES}; do
+    cp  "${srcfile}" "${WORK}/temp.md"
+    modify_image_links "${WORK}/temp.md"
+
+    cp "${TEMPLATES}/${TEMPLATE}" "${WORK}/temp.html"
+
+    insert_title "${srcfile}" "${WORK}/temp.html" "${PLACEHOLDERTITLE}"
+    insert_from_file "${STYLES}/${CSS}" "${WORK}/temp.html" "${PLACEHOLDERCSS}"
+    insert_from_file "${WORK}/temp.md" "${WORK}/temp.html" "${PLACEHOLDERMD}"
+
+    mv "${WORK}/temp.html" "${HTMLOUTPUT}/$(basename "${srcfile}" .md).html"
+
+    printf "%s\n" "${HTMLOUTPUT}/$(basename "${srcfile}" .md).html"
+  done
 }
 
 mkdir -p "${WORK}"
-
-for file in ${MDFILES}
-do
-  cp  "${file}" "${WORK}/temp.md"
-
-  # change '<' to '&lt;' - prism.js requirement
-  sed -e 's#<#\&lt;#' -i "${WORK}/temp.md"
-
-  # change relative adress for image files
-  # (images are used in md files as well as html files)
-  sed -e 's#\.\./images#\./images#' -i "${WORK}/temp.md"
-
-  cp "${TEMPLATES}/${TEMPLATE}" "${WORK}/temp.html"
-
-  # set HTML title to filename
-  sed -e "s/${PLACEHOLDERTITLE}/$(basename ${file} .md)/"\
-   -i "${WORK}/temp.html"
-
-  # insert css code into html file
-  insertfromfile "${PLACEHOLDERCSS}" "${STYLES}/${CSS}" "${WORK}/temp.html"
-
-  # insert modified markdown file into html file
-  insertfromfile "${PLACEHOLDERMD}" "${WORK}/temp.md" "${WORK}/temp.html"
-
-  # rename html file to md file name and move to output directory
-  echo "${HTMLOUTPUT}/$(basename ${file} .md).html"
-  mv "${WORK}/temp.html" "${HTMLOUTPUT}/$(basename ${file} .md).html"
-  rm "${WORK}/temp.md"
-done
+if [ "$(ls -A $MDFILES)" ]; then
+     process_mdfiles
+fi
+rm "${WORK}/temp.md"

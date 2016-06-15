@@ -7,6 +7,7 @@
   <style>
     @@css
   </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/styles/github.min.css">
 </head>
 
 <body>
@@ -15,9 +16,16 @@
   </textarea>
   <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
   </script>
-  <script>
-    var slideshow = remark.create();
-  </script>
+    <script>
+      var hljs = remark.highlighter.engine;
+    </script>
+    <script>
+      var slideshow = remark.create({
+          highlightStyle: 'mono-blue',
+          highlightLanguage: 'javascript',
+          highlightLines: true
+        }) ;
+    </script>
 </body>
 
 </html>
