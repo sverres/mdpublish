@@ -9,14 +9,6 @@ MDFILES='../index/*.md'
 TEMPLATE='index.html'
 CSS='index.css'
 
-PLACEHOLDERTITLE='@@title'
-PLACEHOLDERCSS='@@css'
-PLACEHOLDERMD='@@markdown'
-
-HTMLOUTPUT='..'
-TEMPLATES='../templates'
-STYLES='../styles'
-WORK='../work'
-
+source ./globals.sh
 source ./compileindex.sh
 source ./processmdfiles.sh

@@ -1,12 +1,11 @@
 #!/bin/bash
 #
-# commit all changes and push to github origin repo
+# commit all changes and push to github repo
 #
 # sverre.stikbakke@ntnu.no 20.04.2016
 #
 
-if [ "${#}" -ne 1 ]
-then
+if [ "${#}" -ne 1 ]; then
     echo "usage: commitall.sh \"commit message\""
     exit 1
 fi

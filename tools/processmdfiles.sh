@@ -5,9 +5,10 @@
 # sverre.stikbakke@ntnu.no 18.04.2016
 #
 
-# change relative adress for image files:
-# ../images to ./images
+#
+# change relative adress for image files: ../images to ./images
 # reason: images are used in md files as well as html files
+#
 modify_image_links() {
   local mdfile
   mdfile="${1}" || return

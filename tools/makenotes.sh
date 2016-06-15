@@ -9,13 +9,5 @@ MDFILES='../notes/*.md'
 TEMPLATE='notes.html'
 CSS='notes.css'
 
-PLACEHOLDERTITLE='@@title'
-PLACEHOLDERCSS='@@css'
-PLACEHOLDERMD='@@markdown'
-
-HTMLOUTPUT='..'
-TEMPLATES='../templates'
-STYLES='../styles'
-WORK='../work'
-
+source ./globals.sh
 source ./processmdfiles.sh
