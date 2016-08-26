@@ -58,7 +58,7 @@ process_mdfiles() {
 }
 
 
-if [ "$(ls -A "${MDFILES}" 2> /dev/null)" ]; then
+if [ "$(ls -A ${MDFILES})" ]; then
   mkdir -p "${WORK}"
   process_mdfiles
   rm "${WORK}/temp.md"
