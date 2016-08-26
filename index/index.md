@@ -12,22 +12,16 @@
 ## Notes
 
 - [emneplan](./emneplan.html)
-- [intro](./intro.html)
 - [litteratur](./litteratur.html)
-- [mdpublish](./mdpublish.html)
-- [note-1](./note-1.html)
-- [note-2](./note-2.html)
-- [note-3](./note-3.html)
-- [note-4](./note-4.html)
 - [programvare](./programvare.html)
-- [README](./README.html)
 
 ## This version
 
-- 2016-08-26 11:30:52 +0200 |Sverre Stikbakke |
+- 2016-08-26 16:50:48 +0200 |Sverre Stikbakke |
 
 ## Earlier versions
 
+- [2016-08-26 11:37:10 +0200 |Sverre Stikbakke |Style enhancements](https://cdn.rawgit.com/sverres/mdpublish/03d498ce955593970c987880b113af07231be1ba/)
 - [2016-06-15 22:06:55 +0200 |Sverre Stikbakke |refactor processmdfiles.md](https://cdn.rawgit.com/sverres/mdpublish/ace916c8d20d9c6e8696f7d168e9deab8f9f982a/)
 - [2016-06-15 21:37:25 +0200 |Sverre Stikbakke |refactor globals](https://cdn.rawgit.com/sverres/mdpublish/c0cbdbb098176e7a4da2b8c10e33163610263650/)
 - [2016-06-15 21:13:15 +0200 |Sverre Stikbakke |refactor processmdfiles](https://cdn.rawgit.com/sverres/mdpublish/81d8fb1927290bf85b42ff0c4def6498757140f0/)

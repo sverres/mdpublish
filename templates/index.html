@@ -1,39 +1,46 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <title>@@title</title>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="./styles/prism.css">
-  <style>
-    @@css
-  </style>
+    <title>@@title</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/atom-one-dark.min.css">
+    <style>
+
+        @@css
+
+    </style>
 </head>
-
 <body>
+    <div id="mdcontent">
 
-  <div id="mdcontent">
-    @@markdown
-  </div>
+        @@markdown
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js">
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.3.0/showdown.min.js">
-</script>
-<script>
-  var converter = new showdown.Converter();
-  converter.setOption('simplifiedAutoLink', true);
-  converter.setOption('tables', true);
-  var convert = function() {
-    $('#mdcontent').html(converter.makeHtml($('#mdcontent').text()));
-  };
-  convert();
-</script>
-<script src="./script/prism.js">
-</script>
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
+    </div>
+    <div id="md2html">
+    </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/7.0.1/markdown-it.min.js">
+    </script>
+    <script type="text/javascript" src="script/markdown-it-link-target.min.js">
+    </script>
+    <script>
+        var md = markdownit();
+        md.use(markdownitLinkTarget);
+        var markdown = document.getElementById('mdcontent');
+        document.getElementById("md2html").innerHTML = md.render(markdown.innerHTML);
+    </script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js">
+    </script>
+    <script>
+        MathJax.Hub.Config({
+            "HTML-CSS": {
+                styles: {
+                    "text-align": "left",
+                }
+            }
+        });
+        hljs.initHighlightingOnLoad();
+    </script>
 </body>
-
 </html>
