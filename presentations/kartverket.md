@@ -58,8 +58,8 @@ layout: false
 - Kartverkets WMS/WMTS-tjenester
 - Mapbox javascript-API
 - Egne data på GeoJSON-format
-	- Kommunekart
-	- Statistikkdata fra SSB
+    - Kommunekart
+    - Statistikkdata fra SSB
 ---
 ## GetCapabilities
 
@@ -148,12 +148,12 @@ layout: false
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <wfs:GetFeature 
-	xmlns:wfs="http://www.opengis.net/wfs/2.0" 
-	xmlns:prodskog6="http://ntnu.no/GEO3141">
+    xmlns:wfs="http://www.opengis.net/wfs/2.0" 
+    xmlns:prodskog6="http://ntnu.no/GEO3141">
   <wfs:Query typeNames="prodskog6:arealressursflate">
     <fes:Filter 
-		xmlns:fes="http://www.opengis.net/fes/2.0" 
-		xmlns:gml="http://www.opengis.net/gml/3.2">
+        xmlns:fes="http://www.opengis.net/fes/2.0" 
+        xmlns:gml="http://www.opengis.net/gml/3.2">
       <fes:BBOX>
         <fes:ValueReference>omraade</fes:ValueReference>
         <gml:Envelope srsName="urn:ogc:def:crs:EPSG::25832">
@@ -241,12 +241,12 @@ layout: false
 - WMS/WMTS-tjenester
 - gode svar på GetCapabilities-forespørsler
 - gode veiledere
-	- Leveranser
-	- WMS
-	- WMTS (?) (Har brukt OGC-spesifikasjonen og GetCapabilities)
-	- GML/Filter Encoding
-	- Produktspesifikasjoner
-	- Metadata
+    - Leveranser
+    - WMS
+    - WMTS (?) (Har brukt OGC-spesifikasjonen og GetCapabilities)
+    - GML/Filter Encoding
+    - Produktspesifikasjoner
+    - Metadata
 - rammeverksdokumentet
 - WFS-tjenester - vi er klare!
 
@@ -256,7 +256,7 @@ layout: false
 - alle lagnavn listes opp på GetCapabilities
 - åpne wms-tjenester bør være mer synlige
 - linker til veiledere og presentasjoner har kort levetid
-	- ønsker permanente url'er som lever i flere år
+    - ønsker permanente url'er som lever i flere år
 
 ---
 name: last-page

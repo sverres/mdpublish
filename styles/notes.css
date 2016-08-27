@@ -13,6 +13,9 @@ h1, h2, h3 {
 pre {
   font-family: 'Ubuntu Mono';
 }
+#mdcontent {
+  display: none;
+}
 table {
     /* Remove spacing between table cells (from Normalize.css) */
     border-collapse: collapse;

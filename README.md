@@ -47,7 +47,8 @@ work            - work area for scripts
 ## Thanks to 
 
 - [markdown](https://daringfireball.net/projects/markdown/) 
-- [showdown.js](https://github.com/showdownjs/showdown)
-- [remark.js](http://remarkjs.com/)
-- [MathJax](https://www.mathjax.org/)
-- [Prism.js](http://prismjs.com/)
+- [showdown.js - initial markdown engine](https://github.com/showdownjs/showdown)
+- [markdown-it - current makdown engine](https://github.com/markdown-it/markdown-it)
+- [remark.js - markdown engine for slides](http://remarkjs.com/)
+- [MathJax - for math rendering](https://www.mathjax.org/)
+- [highlight.js - for syntax highlighting](http://prismjs.com/)
