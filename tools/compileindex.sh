@@ -1,86 +1,79 @@
 #!/bin/bash
 #
-# make index-file with all markdown-files
+# make index-file with links to html versions of md files
+#
+# Links serve html files as html files straight from github via rawgit
+# - permalinks - per commit - via rawgit cdn
+# - master-link - not for heavy traffic - according to rawgit.com
 #
 # sverre.stikbakke@ntnu.no 19.04.2016
 #
 
-GITHUBUSER='sverres'
-
-PLANSFILES='../plans/*.md'
-NOTESFILES='../notes/*.md'
-PRESENTATIONSFILES='../presentations/*.md'
-
-INDEXFILE='../index/index.md'
-
-# use only if called from commitall.sh
+# used only if called from commitall.sh
 COMMITMSG="${1}"
 
-echo '# All files' > "${INDEXFILE}"
-echo '' >> "${INDEXFILE}"
-
-echo '## Plans' >> "${INDEXFILE}"
-#
-# insert link to html files: [filename](url)
-#
-echo '' >> "${INDEXFILE}"
-for file in ${PLANSFILES}
-do
-  echo "- [$(basename ${file} .md)](./$(basename ${file} .md).html)"\
-   >> "${INDEXFILE}"
-done
-echo '' >> "${INDEXFILE}"
-
-echo '## Presentations' >> "${INDEXFILE}"
-echo '' >> "${INDEXFILE}"
-for file in ${PRESENTATIONSFILES}
-do
-  echo "- [$(basename ${file} .md)](./$(basename ${file} .md).html)"\
-   >> "${INDEXFILE}"
-done
-echo '' >> "${INDEXFILE}"
-
-echo '## Notes' >> "${INDEXFILE}"
-echo '' >> "${INDEXFILE}"
-for file in ${NOTESFILES}
-do
-  echo "- [$(basename ${file} .md)](./$(basename ${file} .md).html)"\
-   >> "${INDEXFILE}"
-done
-echo '' >> "${INDEXFILE}"
-
-# Make links to serve html files as html files straight from github
-# - permalinks - per commit
-# - master-link - do not use in production - according to rawgit.com
+GITHUBUSER='sverres'
 
 cd ..
 REPO="$(pwd)"
-cd tools
+cd tools || return
 
-echo '## This version' >> "${INDEXFILE}"
-#
-# insert current date and time
-#
-echo '' >> "${INDEXFILE}"
-echo "- $(date +'%F %T %z') |$(git config --get user.name) |${COMMITMSG}"\
- >> "${INDEXFILE}"
-echo '' >> "${INDEXFILE}"
+INFO='../info/*.md'
+PLANS='../plans/*.md'
+PRESENTATIONS='../presentations/*.md'
+NOTES='../notes/*.md'
 
-echo '## Earlier versions' >> "${INDEXFILE}"
+INDEXFILE='../index/index.md'
+
+make_entries() {
+  local directory
+  local header
+  local outfile
+
+  directory="${1}" || return
+  header="${2}" || return
+  outfile="${3}" || return
+
+  printf '%s\n' "${header}" >> "${outfile}"
+  for file in ${directory}; do
+    # md format for link: [filename](url)
+    printf '%s\n' "- [$(basename ${file} .md)](./$(basename ${file} .md).html)"\
+      >> "${outfile}"
+  done
+  printf '\n' >> "${outfile}"
+}
+
+
+printf '%s\n\n' '# GEO2311 Geografisk informasjonsbehandling Høst 2016'\
+  > "${INDEXFILE}"
+
+
+make_entries "${INFO}" '## Informasjon om emnet' "${INDEXFILE}"
+make_entries "${PLANS}" '## Ukeplaner' "${INDEXFILE}"
+make_entries "${PRESENTATIONS}" '## Presentasjoner og opptak' "${INDEXFILE}"
+make_entries "${NOTES}" '## Notater m.m.' "${INDEXFILE}"
+
+
+printf '%s\n' '## Denne versjonen' >> "${INDEXFILE}"
+printf '%s\n' "- $(date +'%F %T %z') |$(git config --get user.name) |"\
+  "${COMMITMSG}" >> "${INDEXFILE}"
+
+
+printf '%s\n\n' '## Tidligere versjoner' >> "${INDEXFILE}"
 #
 # from git log, insert from each commit:
 # - date and time (%ai)
 # - author  (%an)
 # - commit message (%s)
-# - SHA from each commit as part of url (%H) (to index.html)
+# - SHA from each commit as part of url (%H)
 #
-echo '' >> "${INDEXFILE}"
 git log --pretty=format:'- [%ai |%an |%s]'\
-"(https://cdn.rawgit.com/$GITHUBUSER/$(basename ${REPO})/%H/)" >> "${INDEXFILE}"
-echo '' >> "${INDEXFILE}"
-echo '' >> "${INDEXFILE}"
+"(https://cdn.rawgit.com/$GITHUBUSER/$(basename ${REPO})/%H/)"\
+  >> "${INDEXFILE}"
+printf '%s\n\n' >> "${INDEXFILE}"
 
-echo '## Future version' >> "${INDEXFILE}"
-echo '' >> "${INDEXFILE}"
-echo '- [bleeding edge a.k.a. master]'\
-"(https://rawgit.com/$GITHUBUSER/$(basename ${REPO})/master/)" >> "${INDEXFILE}"
+
+printf '%s\n' '## Under arbeid' >> "${INDEXFILE}"
+printf '%s\n\n\n' '- [siste versjon]'\
+"(https://rawgit.com/$GITHUBUSER/$(basename ${REPO})/master/)"\
+  >> "${INDEXFILE}"

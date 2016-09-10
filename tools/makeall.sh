@@ -8,4 +8,6 @@
 source ./makeplans.sh
 source ./makeslides.sh
 source ./makenotes.sh
+source ./makeinfo.sh
+source ./makepresentations.sh
 source ./makeindex.sh

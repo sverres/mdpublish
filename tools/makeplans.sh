@@ -6,8 +6,8 @@
 #
 
 MDFILES='../plans/*.md'
-TEMPLATE='plans.html'
-CSS='plans.css'
+TEMPLATE='notes.html'
+CSS='ntnu-bb.css'
 
 source ./globals.sh
 source ./processmdfiles.sh

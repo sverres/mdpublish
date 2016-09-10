@@ -1,26 +1,32 @@
-# All files
+# GEO2311 Geografisk informasjonsbehandling Høst 2016
 
-## Plans
-
-- [uke-34](./uke-34.html)
-
-## Presentations
-
-- [inspire](./inspire.html)
-- [kartverket](./kartverket.html)
-
-## Notes
-
+## Informasjon om emnet
 - [emneplan](./emneplan.html)
 - [litteratur](./litteratur.html)
 - [programvare](./programvare.html)
 
-## This version
+## Ukeplaner
+- [uke-34](./uke-34.html)
+- [uke-35](./uke-35.html)
+- [uke-36](./uke-36.html)
 
-- 2016-08-27 12:25:28 +0200 |Sverre Stikbakke |
+## Presentasjoner og opptak
+- [uke-34-36](./uke-34-36.html)
 
-## Earlier versions
+## Notater m.m.
+- [emmet](./emmet.html)
+- [git](./git.html)
+- [notepad2meny](./notepad2meny.html)
+- [README](./README.html)
 
+## Denne versjonen
+- 2016-09-10 09:43:58 +0200 |Sverre Stikbakke |
+
+## Tidligere versjoner
+
+- [2016-08-27 12:30:08 +0200 |Sverre Stikbakke |merge with dev - changed to markdown-it](https://cdn.rawgit.com/sverres/mdpublish/e6b96456edf6ab557db3f75dd592915c56073772/)
+- [2016-08-27 12:16:06 +0200 |Sverre Stikbakke |https-adress for remark.js library](https://cdn.rawgit.com/sverres/mdpublish/f6a5fdf996b40ebc6a2f026d60d37ce7dd171548/)
+- [2016-08-26 16:53:50 +0200 |Sverre Stikbakke |changed to markdown-it, refaktoring](https://cdn.rawgit.com/sverres/mdpublish/401d8b0537840bff7fc06efe17429484a4aee240/)
 - [2016-08-26 11:49:37 +0200 |Sverre Stikbakke |merge with dev](https://cdn.rawgit.com/sverres/mdpublish/339e687b782b67d8485141be8186c79e334d1fda/)
 - [2016-08-26 11:37:10 +0200 |Sverre Stikbakke |Style enhancements](https://cdn.rawgit.com/sverres/mdpublish/03d498ce955593970c987880b113af07231be1ba/)
 - [2016-06-15 22:06:55 +0200 |Sverre Stikbakke |refactor processmdfiles.md](https://cdn.rawgit.com/sverres/mdpublish/ace916c8d20d9c6e8696f7d168e9deab8f9f982a/)
@@ -48,6 +54,7 @@
 - [2016-04-18 14:46:37 +0200 |Sverre Stikbakke |files added](https://cdn.rawgit.com/sverres/mdpublish/15bdce8cd6c501b1123612716b651dd33798ae3f/)
 - [2016-04-18 14:42:22 +0200 |Sverre Stikbakke |first commit](https://cdn.rawgit.com/sverres/mdpublish/2e799c725c15a58eb0820f37ce1fcad99da9f7b1/)
 
-## Future version
+## Under arbeid
+- [siste versjon](https://rawgit.com/sverres/mdpublish/master/)
 
-- [bleeding edge a.k.a. master](https://rawgit.com/sverres/mdpublish/master/)
+

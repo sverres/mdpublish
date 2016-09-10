@@ -18,5 +18,5 @@ cd tools
 #
 git log -1 --pretty=format:\
 "https://cdn.rawgit.com/$GITHUBUSER/$(basename $REPO)/%H/" > "${OUTFILE}"
-echo "${OUTFILE}:" 
+printf '%s\n' "${OUTFILE}:"
 cat "${OUTFILE}"

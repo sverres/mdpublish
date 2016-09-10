@@ -1,0 +1,7 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\Notepad2]
+@="&Notepad2"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\Notepad2\command]
+@="\"C:\\Program Files\\Notepad2\\notepad2.exe\" \"%1\" %*"

@@ -1,14 +1,13 @@
 #!/bin/bash
 #
-# make index-file with all markdown-files
+# replace placeholder in HTML file with markdown file content
 #
 # sverre.stikbakke@ntnu.no 18.04.2016
 #
 
-MDFILES='../index/*.md'
+MDFILES='../presentations/*.md'
 TEMPLATE='notes.html'
 CSS='ntnu-bb.css'
 
 source ./globals.sh
-source ./compileindex.sh
 source ./processmdfiles.sh

@@ -12,7 +12,7 @@
 modify_image_links() {
   local mdfile
   mdfile="${1}" || return
-
+  # here: sed used with '#' as delimiter (usually '/' is used)
   sed -e 's#\.\./images#\./images#' -i "${mdfile}"
 }
 

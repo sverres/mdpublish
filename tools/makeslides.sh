@@ -5,7 +5,7 @@
 # sverre.stikbakke@ntnu.no 18.04.2016
 #
 
-MDFILES='../presentations/*.md'
+MDFILES='../slides/*.md'
 TEMPLATE='slides.html'
 CSS='slides.css'
 
