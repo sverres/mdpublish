@@ -20,10 +20,11 @@
 - [README](./README.html)
 
 ## Denne versjonen
-- 2016-09-10 09:43:58 +0200 |Sverre Stikbakke |
+- 2016-09-11 09:48:52 +0200 |Sverre Stikbakke |
 
 ## Tidligere versjoner
 
+- [2016-09-10 09:49:53 +0200 |Sverre Stikbakke |Refactoring folders, templates etc.](https://cdn.rawgit.com/sverres/mdpublish/292f3b39073d25705eee2414d7ec25f7d5f980c4/)
 - [2016-08-27 12:30:08 +0200 |Sverre Stikbakke |merge with dev - changed to markdown-it](https://cdn.rawgit.com/sverres/mdpublish/e6b96456edf6ab557db3f75dd592915c56073772/)
 - [2016-08-27 12:16:06 +0200 |Sverre Stikbakke |https-adress for remark.js library](https://cdn.rawgit.com/sverres/mdpublish/f6a5fdf996b40ebc6a2f026d60d37ce7dd171548/)
 - [2016-08-26 16:53:50 +0200 |Sverre Stikbakke |changed to markdown-it, refaktoring](https://cdn.rawgit.com/sverres/mdpublish/401d8b0537840bff7fc06efe17429484a4aee240/)
