@@ -58,7 +58,7 @@ printf '%s\n\n' '## Tidligere versjoner' >> "${INDEXFILE}"
 git log --pretty=format:'- [%ai |%an |%s]'\
 "(https://cdn.rawgit.com/$GITHUBUSER/$(basename ${REPO})/%H/)"\
   >> "${INDEXFILE}"
-printf '%s\n\n' >> "${INDEXFILE}"
+printf '\n\n' >> "${INDEXFILE}"
 
 # master-link - not using cdn
 #  - not for heavy traffic - according to rawgit.com

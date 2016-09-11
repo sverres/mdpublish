@@ -10,7 +10,7 @@
 #
 
 #
-# locals
+# locals for command line options
 #
 all='false'
 commit='false'
@@ -22,7 +22,7 @@ directory='false'
 GITHUBUSER='sverres'
 cd ..
 REPO="$(pwd)"
-cd tools
+cd tools || exit 1
 COMMITMSG=''
 
 URLFILE='../rawgitlink.txt'
@@ -68,7 +68,7 @@ makeall() {
   collect_markdown_files "${SLIDES}" "${SLIDES_TEMPLATE}" "${SLIDES_CSS}"
 }
 
-usage(){
+usage() {
 printf "%s" "
 usage: $0 options
 
@@ -89,6 +89,7 @@ OPTIONS:
 "
 }
 
+# Command line parsing
 # letters followed by a : means accepting argument $OPTARG
 while getopts "ac:d:s:t:h" OPTION
 do
@@ -96,28 +97,28 @@ do
     h)
       usage
       exit 0
-    ;;
+      ;;
     a)
       all="true"
-    ;;
+      ;;
     c)
       COMMITMSG="$OPTARG"
       commit='true'
-    ;;
+      ;;
     d)
       MDFILES="../$OPTARG/*.md"
       directory='true'
-		;;
+      ;;
     s)
       CSS="$OPTARG"
-		;;
+      ;;
     t)
       TEMPLATE="$OPTARG"
-		;;
+      ;;
     ?)
       usage
       exit 1
-    ;;
+      ;;
   esac
 done
 
@@ -137,7 +138,7 @@ if [ ${commit} = 'true' ]; then
   git add .
   git commit -am "${COMMITMSG}"
   git push
-  cd tools
+  cd tools || exit 1
   source ./getlink.sh
 fi
 

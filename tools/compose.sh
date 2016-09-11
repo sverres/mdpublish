@@ -15,8 +15,8 @@
 # reason: images are used in md files as well as html files
 #
 modify_image_links() {
-  local mdfile
-  mdfile="${1}"
+  local mdfile="${1}"
+
   # sed pattern maching with substitute (s) and in-place editing (-i option),
   # -e option is "editing command"
   # here:
@@ -26,38 +26,26 @@ modify_image_links() {
 }
 
 insert_title() {
-  local mdfile
-  local htmlfile
-  local placeholder
-
-  mdfile="${1}"
-  htmlfile="${2}"
-  placeholder="${3}"
+  local mdfile="${1}"
+  local htmlfile="${2}"
+  local placeholder="${3}"
 
   sed -e "s/${placeholder}/$(basename "${mdfile}" .md)/" -i "${htmlfile}"
 }
 
 insert_from_file() {
-  local insertfile
-  local editfile
-  local placeholder
-
-  insertfile="${1}"
-  editfile="${2}"
-  placeholder="${3}"
+  local insertfile="${1}"
+  local editfile="${2}"
+  local placeholder="${3}"
 
   # sed reads from file ("r") and deletes placeholder ("d")
   sed -e "/${placeholder}/{" -e "r ${insertfile}" -e "d" -e "}" -i "${editfile}"
 }
 
 compose_html() {
-  local mdfiles
-  local template
-  local css
-
-  mdfiles=${1}
-  template="${2}"
-  css="${3}"
+  local mdfiles=${1}
+  local template="${2}"
+  local css="${3}"
 
   for srcfile in ${mdfiles}; do
     cp  "${srcfile}" "${WORK}/temp.md"
@@ -76,17 +64,13 @@ compose_html() {
 }
 
 collect_markdown_files() {
-  local mdfiles
-  local template
-  local css
-
-  mdfiles="${1}"
-  template="${2}"
-  css="${3}"
+  local mdfiles="${1}"
+  local template="${2}"
+  local css="${3}"
 
   #check if directory contains files
   if [ "$(ls -A ${mdfiles})" ]; then
-    mkdir -p ${WORK}
+    mkdir -p "${WORK}"
     compose_html "${mdfiles}" "${template}" "${css}"
     rm "${WORK}/temp.md"
   fi
