@@ -20,10 +20,11 @@
 - [README](./README.html)
 
 ## Denne versjonen
-- 2016-09-11 15:01:50 +0200 |Sverre Stikbakke |
-test -a -c
+- 2016-09-11 15:04:36 +0200 |Sverre Stikbakke |
+
 ## Tidligere versjoner
 
+- [2016-09-11 15:01:52 +0200 |Sverre Stikbakke |test -a -c](https://cdn.rawgit.com/sverres/mdpublish/b59e7d690376069ce1899b4abb89f27289cdb858/)
 - [2016-09-11 14:59:16 +0200 |Sverre Stikbakke |README copy fix](https://cdn.rawgit.com/sverres/mdpublish/109aa2c358381a43b160f53d632162c9aa934072/)
 - [2016-09-11 14:52:00 +0200 |Sverre Stikbakke |Major refactoring](https://cdn.rawgit.com/sverres/mdpublish/24ac7ee7091e321cba4939b37dc2c57df67466c7/)
 - [2016-09-11 09:50:33 +0200 |Sverre Stikbakke |merge with master](https://cdn.rawgit.com/sverres/mdpublish/6b3ef84e45b168cefd9604547fba0020db21a630/)
