@@ -133,7 +133,7 @@ fi
 if [ ${commit} = 'true' ]; then
   cd ..
   rm -f ./rawgitlink.txt
-  cp ./notes/README.md
+  cp ./notes/README.md .
   git add .
   git commit -am "${COMMITMSG}"
   git push
