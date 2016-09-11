@@ -1,29 +1,15 @@
 #!/bin/bash
 #
-# make index-file with links to html versions of md files
+# Makes index-file with links to html versions of md files.
 #
 # Links serve html files as html files straight from github via rawgit
 # - permalinks - per commit - via rawgit cdn
 # - master-link - not for heavy traffic - according to rawgit.com
 #
-# sverre.stikbakke@ntnu.no 19.04.2016
+# sverre.stikbakke@ntnu.no 11.09.2016
 #
 
-# used only if called from commitall.sh
-COMMITMSG="${1}"
-
-GITHUBUSER='sverres'
-
-cd ..
-REPO="$(pwd)"
-cd tools || return
-
-INFO='../info/*.md'
-PLANS='../plans/*.md'
-PRESENTATIONS='../presentations/*.md'
-NOTES='../notes/*.md'
-
-INDEXFILE='../index/index.md'
+# GLOBALS defined in mdpublish.sh
 
 make_entries() {
   local directory
@@ -61,6 +47,8 @@ printf '%s\n' "- $(date +'%F %T %z') |$(git config --get user.name) |"\
 
 printf '%s\n\n' '## Tidligere versjoner' >> "${INDEXFILE}"
 #
+# permalinks - per commit - via rawgit cdn:
+#
 # from git log, insert from each commit:
 # - date and time (%ai)
 # - author  (%an)
@@ -72,7 +60,9 @@ git log --pretty=format:'- [%ai |%an |%s]'\
   >> "${INDEXFILE}"
 printf '%s\n\n' >> "${INDEXFILE}"
 
-
+# master-link - not using cdn
+#  - not for heavy traffic - according to rawgit.com
+#
 printf '%s\n' '## Under arbeid' >> "${INDEXFILE}"
 printf '%s\n\n\n' '- [siste versjon]'\
 "(https://rawgit.com/$GITHUBUSER/$(basename ${REPO})/master/)"\

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>notepad2meny</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/atom-one-dark.min.css">
+    <style>
+
+@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+body {
+  font-family: 'Droid Serif';
+  margin-left: 3%;
+  width: 80%;
+  //background-color: #f4f4f4;
+  max-width: 700px;
+}
+h1, h2, h3 {
+  font-family: 'Yanone Kaffeesatz';
+  font-weight: normal;
+}
+h1  {
+  background-color: #01509f;
+  color: white;
+  padding: 15px;
+}
+pre {
+  font-family: 'Ubuntu Mono';
+}
+#mdcontent {
+  display: none;
+}
+img {
+    border-style: solid;
+    border-width: 1px;
+    color: #cbcbcb;
+}
+.MathJax_Display {
+  text-align: left !important;
+  display: inline !important;
+  padding-left: 1%;
+}
+/*!
+Pure v0.6.0
+Copyright 2014 Yahoo! Inc. All rights reserved.
+Licensed under the BSD License.
+https://github.com/yahoo/pure/blob/master/LICENSE.md
+*/
+table {
+    /* Remove spacing between table cells (from Normalize.css) */
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    border: 1px solid #cbcbcb;
+}
+table caption {
+    color: #000;
+    font: italic 85%/1 arial, sans-serif;
+    padding: 1em 0;
+    text-align: center;
+}
+table td,
+table th {
+    border-left: 1px solid #cbcbcb;/*  inner column border */
+    border-width: 0 0 0 1px;
+    font-size: inherit;
+    margin: 0;
+    overflow: visible; /*to make ths where the title is really long work*/
+    padding: 0.5em 1em; /* cell padding */
+}
+/* Consider removing this next declaration block, as it causes problems when
+there's a rowspan on the first cell. Case added to the tests. issue#432 */
+table td:first-child,
+table th:first-child {
+    border-left-width: 0;
+}
+table thead {
+    background-color: #c4c4c4;
+    color: #000;
+    text-align: left;
+    vertical-align: bottom;
+}
+/* nth-child selector for modern browsers */
+table tr:nth-child(2n-2) td {
+    background-color: #dddddd;
+}
+
+    </style>
+</head>
+<body>
+    <div id="mdcontent">
+
+# Notepad 2 mod
+
+Notepad 2 mod er en modifisert versjon av tekstbehandleren Notepad 2 som igjen er laget for å være en erstatter for Windows Notepad.
+
+![kontekstmeny](./images/tools/notepad2logo.png)
+
+Gode grunner for å bruke Notepad 2 mod:
+
+- rask
+- håndtererer linjeskift på en god måte (viktig ved visning av filer)
+- har fargekoding av programkode for å gi god oversikt over strukturen i koden
+- har "code folding" - kan skjule deler av koden
+
+Kontektsmeny vil si en meny som er tilpasset situasjonen (konteksten) du er i. For eksempel så kan menyen ha ulike valg avhengig av hvilken filtype du ser på. En type kontekstmeny kommer fram hvis du høyreklikker på en fil i en Windows-mappe.
+
+## Hvordan legge til Notepad2 som et valg i kontekstmenyen?
+
+- Notepad 2 mod må være installert
+- Høyreklikk på [notepad-meny.reg](./docs/notepad-meny.reg) og lagre filen på egen PC. Åpne deretter mappen der du har lagret den og klikk på filen. Du vil få en advarsel, men du kan kjøre denne filen (Innholdet i filen kan du se [her](./docs/notepad-meny.txt) - dette er kommandoer som legger til et menypunkt i kontekstmenyen).
+- høyreklikk på noen ulike filtyper og sjekk at du har valget Notepad2 på kontekstmenyen (Det skal normalt vises på alle filtyper).
+
+Slik kan kontekstmenyen se ut:
+
+![kontekstmeny](./images/tools/notepad2meny.png)
+
+    </div>
+    <div id="md2html">
+    </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/7.0.1/markdown-it.min.js">
+    </script>
+    <script type="text/javascript" src="script/markdown-it-link-target.min.js">
+    </script>
+    <script>
+        var md = markdownit();
+        md.use(markdownitLinkTarget);
+        var markdown = document.getElementById('mdcontent');
+        document.getElementById("md2html").innerHTML = md.render(markdown.innerHTML);
+    </script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js">
+    </script>
+    <script>
+        MathJax.Hub.Config({
+            "HTML-CSS": {
+                styles: {
+                    "text-align": "left",
+                }
+            }
+        });
+        hljs.initHighlightingOnLoad();
+    </script>
+</body>
+</html>

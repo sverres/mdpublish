@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>emmet</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/atom-one-dark.min.css">
+    <style>
+
+@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+body {
+  font-family: 'Droid Serif';
+  margin-left: 3%;
+  width: 80%;
+  //background-color: #f4f4f4;
+  max-width: 700px;
+}
+h1, h2, h3 {
+  font-family: 'Yanone Kaffeesatz';
+  font-weight: normal;
+}
+h1  {
+  background-color: #01509f;
+  color: white;
+  padding: 15px;
+}
+pre {
+  font-family: 'Ubuntu Mono';
+}
+#mdcontent {
+  display: none;
+}
+img {
+    border-style: solid;
+    border-width: 1px;
+    color: #cbcbcb;
+}
+.MathJax_Display {
+  text-align: left !important;
+  display: inline !important;
+  padding-left: 1%;
+}
+/*!
+Pure v0.6.0
+Copyright 2014 Yahoo! Inc. All rights reserved.
+Licensed under the BSD License.
+https://github.com/yahoo/pure/blob/master/LICENSE.md
+*/
+table {
+    /* Remove spacing between table cells (from Normalize.css) */
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    border: 1px solid #cbcbcb;
+}
+table caption {
+    color: #000;
+    font: italic 85%/1 arial, sans-serif;
+    padding: 1em 0;
+    text-align: center;
+}
+table td,
+table th {
+    border-left: 1px solid #cbcbcb;/*  inner column border */
+    border-width: 0 0 0 1px;
+    font-size: inherit;
+    margin: 0;
+    overflow: visible; /*to make ths where the title is really long work*/
+    padding: 0.5em 1em; /* cell padding */
+}
+/* Consider removing this next declaration block, as it causes problems when
+there's a rowspan on the first cell. Case added to the tests. issue#432 */
+table td:first-child,
+table th:first-child {
+    border-left-width: 0;
+}
+table thead {
+    background-color: #c4c4c4;
+    color: #000;
+    text-align: left;
+    vertical-align: bottom;
+}
+/* nth-child selector for modern browsers */
+table tr:nth-child(2n-2) td {
+    background-color: #dddddd;
+}
+
+    </style>
+</head>
+<body>
+    <div id="mdcontent">
+
+# Emmet - et hjelpemiddel for å skrive HTML- og CSS-kode raskt
+
+Emmet er en tilleggspakke til Atom editor, og kan installeres på følgende måte:
+
+- Gå til File/Settings/Install-menyen:
+
+![Installere tillegspakker](./images/tools/atom-install.png)
+
+
+- Søk opp Emmet ved å søke i Packages:
+
+![Installere tillegspakker](./images/tools/emmet-search.png)
+
+
+- Installer Emmet:
+
+![Installere tillegspakker](./images/tools/emmet-install.png)
+
+
+- Emmet ferdig installert:
+
+![Installere tillegspakker](./images/tools/emmet-installed.png)
+
+
+
+Etter et Emmet er installert kan du teste funksjonaliteten i en HTML-fil (Emmet virker bare i filer med endelse .html og .css, og kommandoene virker forskjellig i de to filtypene).
+
+Skriv f.eks. disse kommandoene, plasser cursoren på samme linje som kommadoen og etter det siste tegnet. Trykk på tabulatortasten:
+
+
+- !
+
+- ul
+- ol
+- li
+
+- ul>li*4
+- ul>li*4>a:link
+- p*3>lorem8
+
+Den siste kommandoen bruker en generator for Lorem Ipsum-tekst. Les mer om det her:
+- [Lorem Ipsum](http://docs.emmet.io/abbreviations/lorem-ipsum/)
+- [Dokumentasjon for Emmet](http://docs.emmet.io/)
+- [Jukselapp for Emmet-kommandoer](http://docs.emmet.io/cheat-sheet/) - se særlig under HTML
+
+    </div>
+    <div id="md2html">
+    </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/7.0.1/markdown-it.min.js">
+    </script>
+    <script type="text/javascript" src="script/markdown-it-link-target.min.js">
+    </script>
+    <script>
+        var md = markdownit();
+        md.use(markdownitLinkTarget);
+        var markdown = document.getElementById('mdcontent');
+        document.getElementById("md2html").innerHTML = md.render(markdown.innerHTML);
+    </script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js">
+    </script>
+    <script>
+        MathJax.Hub.Config({
+            "HTML-CSS": {
+                styles: {
+                    "text-align": "left",
+                }
+            }
+        });
+        hljs.initHighlightingOnLoad();
+    </script>
+</body>
+</html>

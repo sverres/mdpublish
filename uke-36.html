@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>uke-36</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/atom-one-dark.min.css">
+    <style>
+
+@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+body {
+  font-family: 'Droid Serif';
+  margin-left: 3%;
+  width: 80%;
+  //background-color: #f4f4f4;
+  max-width: 700px;
+}
+h1, h2, h3 {
+  font-family: 'Yanone Kaffeesatz';
+  font-weight: normal;
+}
+h1  {
+  background-color: #01509f;
+  color: white;
+  padding: 15px;
+}
+pre {
+  font-family: 'Ubuntu Mono';
+}
+#mdcontent {
+  display: none;
+}
+img {
+    border-style: solid;
+    border-width: 1px;
+    color: #cbcbcb;
+}
+.MathJax_Display {
+  text-align: left !important;
+  display: inline !important;
+  padding-left: 1%;
+}
+/*!
+Pure v0.6.0
+Copyright 2014 Yahoo! Inc. All rights reserved.
+Licensed under the BSD License.
+https://github.com/yahoo/pure/blob/master/LICENSE.md
+*/
+table {
+    /* Remove spacing between table cells (from Normalize.css) */
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    border: 1px solid #cbcbcb;
+}
+table caption {
+    color: #000;
+    font: italic 85%/1 arial, sans-serif;
+    padding: 1em 0;
+    text-align: center;
+}
+table td,
+table th {
+    border-left: 1px solid #cbcbcb;/*  inner column border */
+    border-width: 0 0 0 1px;
+    font-size: inherit;
+    margin: 0;
+    overflow: visible; /*to make ths where the title is really long work*/
+    padding: 0.5em 1em; /* cell padding */
+}
+/* Consider removing this next declaration block, as it causes problems when
+there's a rowspan on the first cell. Case added to the tests. issue#432 */
+table td:first-child,
+table th:first-child {
+    border-left-width: 0;
+}
+table thead {
+    background-color: #c4c4c4;
+    color: #000;
+    text-align: left;
+    vertical-align: bottom;
+}
+/* nth-child selector for modern browsers */
+table tr:nth-child(2n-2) td {
+    background-color: #dddddd;
+}
+
+    </style>
+</head>
+<body>
+    <div id="mdcontent">
+
+# GEO2311 - Høst 2016 - uke 36
+
+
+## Målsetting
+
+- Viktige mål for denne uka er å bli mer fortrolig med HTML og CSS ved å lese teorien i læreboka og fullføre Codeacademy-kurset HTML&CSS.
+- Lære om tilgjengelige kartdata på geonorge.no
+- Lære om WMS - Web Map Service
+
+## Aktiviteter
+
+- Hvis du ikke har gjort øvingene under tidligere ukeplaner, bør de gjøres først. Codeacademy-kurset er det veldig viktig å få gjort!
+- Fortsette å lese i læreboka. Se kapittelangivelse under ressurser. Legg vekt på å forstå håndtering av bilder på websider. Det trengs når vi skal seinere skal legge inn kart.
+- Prøv å lage websider på egen PC ved å kopiere fra kodeeksemplene i læreboka. Prøv ut ting ved å gjøre små forandringer i koden ut fra det du leser om. 
+- Lese teori om WMS. Se under ressurser.
+- Gjør deg kjent på [geonorge.no](http://geonorge.no)
+
+
+## Forelesning/fellesaktivitet på torsdag
+
+NB: *Rom E211* fram til lunsj.
+- Besøk fra Kartverket og orientering om [#hack4no](http://www.hack4.no/). Her er opplegget slik de beskriver det:
+	- Hack4no og hvordan en student kan få mest mulig utbytte av det
+	- Gjennomgang av åpne datasett og tjenester, hovedvekt på kartdata
+	- Ideutvikling i plenum – de som vil kan pitche ideer, vi begynner å sette sammen lag
+- Intro-forelesning om WMS (13:15).
+
+
+## Ressurser
+
+- [WMS-veileder fra Norge Digitalt - kapittel 1-5](https://www.geonorge.no/globalassets/geonorge2/veiledere/veileder-for-web-map-service-201008.pdf)
+- [WMS-presentasjon](./docs/WMS.pdf)
+- HTML&CSS lærebok:
+	- HTML: Kapittel 4-6
+	- CSS: Kapittel 11, 13-14
+- [Kodeeksempler fra lærebok](http://www.htmlandcssbook.com/code-samples/)
+- [w3Schools](http://www.w3schools.com/)
+  - bruk gjerne References for å lære om de ulike html- og CSS-elementene
+
+    </div>
+    <div id="md2html">
+    </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/7.0.1/markdown-it.min.js">
+    </script>
+    <script type="text/javascript" src="script/markdown-it-link-target.min.js">
+    </script>
+    <script>
+        var md = markdownit();
+        md.use(markdownitLinkTarget);
+        var markdown = document.getElementById('mdcontent');
+        document.getElementById("md2html").innerHTML = md.render(markdown.innerHTML);
+    </script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js">
+    </script>
+    <script>
+        MathJax.Hub.Config({
+            "HTML-CSS": {
+                styles: {
+                    "text-align": "left",
+                }
+            }
+        });
+        hljs.initHighlightingOnLoad();
+    </script>
+</body>
+</html>
