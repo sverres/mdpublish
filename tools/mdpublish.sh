@@ -95,7 +95,7 @@ OPTIONS:
 # letters followed by a : means accepting argument $OPTARG
 while getopts "ac:d:s:t:h" OPTION
 do
-  case "$OPTION" in
+  case "${OPTION}" in
     h)
       usage
       exit 0
@@ -104,18 +104,18 @@ do
       all="true"
       ;;
     c)
-      COMMITMSG="$OPTARG"
+      COMMITMSG="${OPTARG}"
       commit='true'
       ;;
     d)
-      MDFILES="../$OPTARG/*.md"
+      MDFILES="../${OPTARG}/*.md"
       directory='true'
       ;;
     s)
-      CSS="$OPTARG"
+      CSS="${OPTARG}"
       ;;
     t)
-      TEMPLATE="$OPTARG"
+      TEMPLATE="${OPTARG}"
       ;;
     ?)
       usage
@@ -127,16 +127,16 @@ done
 mkdir -p "${WORK}"
 mkdir -p "${INDEX}"
 
-if [ ${directory}  = 'true' ]; then
+if [ "${directory}"  = 'true' ]; then
   compose_html "${MDFILES}" "${TEMPLATE}" "${CSS}"
 fi
 
-if [ ${all} = 'true' ]; then
+if [ "${all}" = 'true' ]; then
   source ./compileindex.sh
   makeall
 fi
 
-if [ ${commit} = 'true' ]; then
+if [ "${commit}" = 'true' ]; then
   cd ..
   rm -f ./rawgitlink.txt
   cp ./notes/README.md .

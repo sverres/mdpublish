@@ -20,7 +20,7 @@ make_entries() {
 
   for srcfile in ${mdfiles}; do
     # exit loop if directory is empty
-    test -f "$srcfile" || continue
+    test -f "${srcfile}" || continue
     # md format for link: [filename](url)
     printf '%s\n'\
       "- [$(basename ${srcfile} .md)](./$(basename ${srcfile} .md).html)"\
@@ -56,7 +56,7 @@ printf '%s\n\n' '## Tidligere versjoner' >> "${INDEXFILE}"
 # - SHA from each commit as part of url (%H)
 #
 git log --pretty=format:'- [%ai |%an |%s]'\
-"(https://cdn.rawgit.com/$GITHUBUSER/$(basename ${REPO})/%H/)"\
+"(https://cdn.rawgit.com/${GITHUBUSER}/$(basename ${REPO})/%H/)"\
   >> "${INDEXFILE}"
 printf '\n\n' >> "${INDEXFILE}"
 
@@ -65,5 +65,5 @@ printf '\n\n' >> "${INDEXFILE}"
 #
 printf '%s\n' '## Under arbeid' >> "${INDEXFILE}"
 printf '%s\n\n\n' '- [siste versjon]'\
-"(https://rawgit.com/$GITHUBUSER/$(basename ${REPO})/master/)"\
+"(https://rawgit.com/${GITHUBUSER}/$(basename ${REPO})/master/)"\
   >> "${INDEXFILE}"
