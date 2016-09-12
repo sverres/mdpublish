@@ -34,6 +34,7 @@ PLACEHOLDERMD='@@markdown'
 HTMLOUTPUT='..'
 TEMPLATES='../templates'
 STYLES='../styles'
+INDEX='../index'
 WORK='../work'
 
 MDFILES=''
@@ -124,6 +125,7 @@ do
 done
 
 mkdir -p "${WORK}"
+mkdir -p "${INDEX}"
 
 if [ ${directory}  = 'true' ]; then
   compose_html "${MDFILES}" "${TEMPLATE}" "${CSS}"
