@@ -48,6 +48,8 @@ compose_html() {
   local css="${3}"
 
   for srcfile in ${mdfiles}; do
+    # exit loop if directory is empty
+    test -f "$srcfile" || continue
     cp  "${srcfile}" "${WORK}/temp.md"
     modify_image_links "${WORK}/temp.md"
 
@@ -61,17 +63,4 @@ compose_html() {
 
     printf "%s\n" "${HTMLOUTPUT}/$(basename "${srcfile}" .md).html"
   done
-}
-
-collect_markdown_files() {
-  local mdfiles="${1}"
-  local template="${2}"
-  local css="${3}"
-
-  #check if directory contains files
-  if [ "$(ls -A ${mdfiles})" ]; then
-    mkdir -p "${WORK}"
-    compose_html "${mdfiles}" "${template}" "${css}"
-    rm "${WORK}/temp.md"
-  fi
 }

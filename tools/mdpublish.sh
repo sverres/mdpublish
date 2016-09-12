@@ -60,12 +60,13 @@ SLIDES_CSS='slides.css'
 source ./compose.sh
 
 makeall() {
-  collect_markdown_files "${INDEXFILE}" "${TEMPLATE}" "${CSS}"
-  collect_markdown_files "${INFO}" "${TEMPLATE}" "${CSS}"
-  collect_markdown_files "${PLANS}" "${TEMPLATE}" "${CSS}"
-  collect_markdown_files "${PRESENTATIONS}" "${TEMPLATE}" "${CSS}"
-  collect_markdown_files "${NOTES}" "${TEMPLATE}" "${CSS}"
-  collect_markdown_files "${SLIDES}" "${SLIDES_TEMPLATE}" "${SLIDES_CSS}"
+  compose_html "${INDEXFILE}" "${TEMPLATE}" "${CSS}"
+  compose_html "${INFO}" "${TEMPLATE}" "${CSS}"
+  compose_html "${PLANS}" "${TEMPLATE}" "${CSS}"
+  compose_html "${PRESENTATIONS}" "${TEMPLATE}" "${CSS}"
+  compose_html "${NOTES}" "${TEMPLATE}" "${CSS}"
+
+  compose_html "${SLIDES}" "${SLIDES_TEMPLATE}" "${SLIDES_CSS}"
 }
 
 usage() {
@@ -81,9 +82,9 @@ OPTIONS:
 
    -a    all        All directories
    -c    commit     Push to github             (e.g.: -c \"commit message\")
-   -d    directory  Use spesific directory     (e.g.: -d notes)
-   -s    style      Use spesific css-file      (e.g.: -s mystyle.css)
-   -t    template   Use spesific html-template (e.g.: -t testing.html)
+   -d    directory  Use specific directory     (e.g.: -d notes)
+   -s    style      Use specific css-file      (e.g.: -s mystyle.css)
+   -t    template   Use specific html-template (e.g.: -t testing.html)
 
    -h    help       Show this message
 "
@@ -93,7 +94,7 @@ OPTIONS:
 # letters followed by a : means accepting argument $OPTARG
 while getopts "ac:d:s:t:h" OPTION
 do
-  case $OPTION in
+  case "$OPTION" in
     h)
       usage
       exit 0
@@ -122,8 +123,10 @@ do
   esac
 done
 
+mkdir -p "${WORK}"
+
 if [ ${directory}  = 'true' ]; then
-  collect_markdown_files "${MDFILES}" "${TEMPLATE}" "${CSS}"
+  compose_html "${MDFILES}" "${TEMPLATE}" "${CSS}"
 fi
 
 if [ ${all} = 'true' ]; then
@@ -141,5 +144,8 @@ if [ ${commit} = 'true' ]; then
   cd tools || exit 1
   source ./getlink.sh
 fi
+
+rm -f "${WORK}/temp.md"
+rmdir "${WORK}"
 
 exit 0

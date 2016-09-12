@@ -12,18 +12,18 @@
 # GLOBALS defined in mdpublish.sh
 
 make_entries() {
-  local directory
-  local header
-  local outfile
-
-  directory="${1}" || return
-  header="${2}" || return
-  outfile="${3}" || return
+  local mdfiles="${1}"
+  local header="${2}"
+  local outfile="${3}"
 
   printf '%s\n' "${header}" >> "${outfile}"
-  for file in ${directory}; do
+
+  for srcfile in ${mdfiles}; do
+    # exit loop if directory is empty
+    test -f "$srcfile" || continue
     # md format for link: [filename](url)
-    printf '%s\n' "- [$(basename ${file} .md)](./$(basename ${file} .md).html)"\
+    printf '%s\n'\
+      "- [$(basename ${srcfile} .md)](./$(basename ${srcfile} .md).html)"\
       >> "${outfile}"
   done
   printf '\n' >> "${outfile}"
