@@ -14,9 +14,9 @@
 make_entries() {
   local mdfiles="${1}"
   local header="${2}"
-  local outfile="${3}"
+  local indexfile="${3}"
 
-  printf '%s\n' "${header}" >> "${outfile}"
+  printf '%s\n' "${header}" >> "${indexfile}"
 
   for srcfile in ${mdfiles}; do
     # exit loop if directory is empty
@@ -24,9 +24,9 @@ make_entries() {
     # md format for link: [filename](url)
     printf '%s\n'\
       "- [$(basename ${srcfile} .md)](./$(basename ${srcfile} .md).html)"\
-      >> "${outfile}"
+      >> "${indexfile}"
   done
-  printf '\n' >> "${outfile}"
+  printf '\n' >> "${indexfile}"
 }
 
 
