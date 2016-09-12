@@ -18,12 +18,12 @@ make_entries() {
 
   printf '%s\n' "${header}" >> "${indexfile}"
 
-  for srcfile in ${mdfiles}; do
+  for mdfile in ${mdfiles}; do
     # exit loop if directory is empty
-    test -f "${srcfile}" || continue
+    test -f "${mdfile}" || continue
     # md format for link: [filename](url)
     printf '%s\n'\
-      "- [$(basename ${srcfile} .md)](./$(basename ${srcfile} .md).html)"\
+      "- [$(basename ${mdfile} .md)](./$(basename ${mdfile} .md).html)"\
       >> "${indexfile}"
   done
   printf '\n' >> "${indexfile}"

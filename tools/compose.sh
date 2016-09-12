@@ -47,20 +47,20 @@ compose_html() {
   local template="${2}"
   local css="${3}"
 
-  for srcfile in ${mdfiles}; do
+  for mdfile in ${mdfiles}; do
     # exit loop if directory is empty
-    test -f "${srcfile}" || continue
-    cp  "${srcfile}" "${WORK}/temp.md"
+    test -f "${mdfile}" || continue
+    cp  "${mdfile}" "${WORK}/temp.md"
     modify_image_links "${WORK}/temp.md"
 
     cp "${TEMPLATES}/${template}" "${WORK}/temp.html"
 
-    insert_title "${srcfile}" "${WORK}/temp.html" "${PLACEHOLDERTITLE}"
+    insert_title "${mdfile}" "${WORK}/temp.html" "${PLACEHOLDERTITLE}"
     insert_from_file "${STYLES}/${css}" "${WORK}/temp.html" "${PLACEHOLDERCSS}"
     insert_from_file "${WORK}/temp.md" "${WORK}/temp.html" "${PLACEHOLDERMD}"
 
-    mv "${WORK}/temp.html" "${HTMLOUTPUT}/$(basename "${srcfile}" .md).html"
+    mv "${WORK}/temp.html" "${HTMLOUTPUT}/$(basename "${mdfile}" .md).html"
 
-    printf "%s\n" "${HTMLOUTPUT}/$(basename "${srcfile}" .md).html"
+    printf "%s\n" "${HTMLOUTPUT}/$(basename "${mdfile}" .md).html"
   done
 }
