@@ -49,7 +49,7 @@ compose_html() {
 
   for srcfile in ${mdfiles}; do
     # exit loop if directory is empty
-    test -f "$srcfile" || continue
+    test -f "${srcfile}" || continue
     cp  "${srcfile}" "${WORK}/temp.md"
     modify_image_links "${WORK}/temp.md"
 
